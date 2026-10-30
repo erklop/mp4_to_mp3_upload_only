@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MP4 to MP3 Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #e0e7ff 0%, #f1f5f9 100%);
+      font-family: 'Inter', Arial, sans-serif;
+      min-height: 100vh;
+    }
+    .card {
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(60, 90, 120, 0.13);
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #2563eb 0%, #1e3a8a 100%);
+      border: none;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%);
+    }
+    .form-label {
+      font-weight: 700;
+      color: #334155;
+    }
+    .footer {
+      margin-top: 48px;
+      color: #64748b;
+      font-size: 15px;
+      text-align: center;
+    }
+    .icon {
+      color: #2563eb;
+    }
+    .spinner-border {
+      display: none;
+      margin-left: 8px;
+    }
+    #messageArea {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-7 col-lg-6">
+        <div class="card p-4">
+          <div class="mb-4 text-center">
+            <i class="fas fa-film fa-2x icon"></i>
+            <i class="fas fa-arrow-right fa-lg icon mx-2"></i>
+            <i class="fas fa-music fa-2x icon"></i>
+            <h2 class="mt-2 fw-bold" style="color: #1e3a8a;">Convert MP4 to MP3</h2>
+            <p class="text-muted">Upload an MP4 file and download its audio as an MP3.</p>
+          </div>
+
+          <div id="messageArea" class="alert" role="alert"></div>
+
+          <form id="conversionForm" method="POST" action="/convert" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="video" class="form-label">Upload MP4 File</label>
+              <input type="file" class="form-control" name="video" id="video" accept="video/mp4">
+              <div class="form-text">Use files you own or have permission to convert.</div>
+            </div>
+            <button type="submit" id="submitBtn" class="btn btn-primary w-100 fw-bold">
+              Convert to MP3
+              <span class="spinner-border spinner-border-sm" id="spinner" role="status" aria-hidden="true"></span>
+            </button>
+          </form>
+        </div>
+
+        <div class="footer">
+          <i class="fas fa-code"></i> MP4 to MP3 Converter &mdash; made by
+          <a href="https://github.com/erklop" target="_blank" rel="noopener" style="color:#2563eb;text-decoration:none;">@erklop</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
